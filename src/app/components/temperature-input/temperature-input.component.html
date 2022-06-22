@@ -1,8 +1,9 @@
-<input type="text">
-ciao
+<div>
+    <h2>Celsius</h2>
+</div>
+<input type="number" [(ngModel)]="value" (ngModelChange)="valueChanged()">
+<span>°C</span>
 
-
-<button (click)="checkOk()">ok</button>
 
 
 

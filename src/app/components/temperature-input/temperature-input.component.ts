@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConvercionServiceService } from 'src/app/service/convercion-service.service';
 
 @Component({
   selector: 'app-temperature-input',
@@ -7,13 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemperatureInputComponent implements OnInit {
 
-  constructor() { }
+  value: number = 0
+
+  constructor(private conServ: ConvercionServiceService) { 
+    conServ.temperature.subscribe({
+      next: v => this.value = v,
+      error: err => console.log(err)
+      
+    })
+  }
 
   ngOnInit(): void {
   }
 
 
-  checkOk(){
+  valueChanged(): void{   /// funzione pulsante output
+ this.conServ.temperature.next(this.value); 
  
   }
 }
