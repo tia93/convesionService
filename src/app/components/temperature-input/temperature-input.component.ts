@@ -11,7 +11,7 @@ export class TemperatureInputComponent implements OnInit {
   value: number = 0
 
   constructor(private conServ: ConvercionServiceService) { 
-    conServ.temperature.subscribe({
+    conServ.temperature.subscribe({   //il valore viene messo in value di incima
       next: v => this.value = v,
       error: err => console.log(err)
       
